@@ -1,3 +1,11 @@
+# Note
+
+Due to a [Sass bug](https://github.com/sass/sass/issues/556) importing `.css` files is not working as expected.
+
+This is a fork of normalize.css which only change is to rename the extension to `.scss` so the package can be imported in .scss files.
+
+
+
 # normalize.css v3
 
 Normalize.css is a customisable CSS file that makes browsers render all
