@@ -4,6 +4,45 @@ Due to a [Sass bug](https://github.com/sass/sass/issues/556) importing `.css` fi
 
 This is a fork of normalize.css which only change is to rename the extension to `.scss` so the package can be imported in .scss files.
 
+## Usage
+
+Install this package via npm:
+
+```bash
+npm install normalize.css-importable --save
+```
+
+
+Mention the path (`./node_modules/normalize.css-importable/`) in the includePaths of Sass.
+
+Gulp example (Coffeescript):
+
+```coffee
+gulp.task 'styles', ->
+  sassImports = [
+    './node_modules/susy/sass/'
+    './node_modules/bourbon/app/assets/stylesheets/'
+    './node_modules/normalize.css-importable/'
+  ]
+
+  gulp.src paths.glob.styles
+    .pipe $.plumber()
+    .pipe $.sass
+      errLogToConsole: true
+      includePaths: sassImports
+    .pipe gulp.dest paths.dest.assets
+    .pipe $.size title: 'CSS'
+    .pipe reload stream:true
+```
+
+default.scss
+
+```scss
+@import "normalize";
+```
+
+Please make a PR in case normalize.css has been updated.
+
 
 
 # normalize.css v3
